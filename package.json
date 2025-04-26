@@ -1,0 +1,91 @@
+{
+  "name": "natoursrelearn",
+  "version": "1.0.0",
+  "description": "Relearning Express Node js and Mongoodb",
+  "source": "./public/js/index.js",
+  "scripts": {
+    "start": "node --watch server.js",
+    "start:prod": "cross-env NODE_ENV=production node --watch server.js",
+    "debug": "ndb server.js",
+    "watch:js": "parcel watch public/js/index.js --dist-dir public/js/dist",
+    "build:js": "parcel build public/js/index.js --dist-dir public/js/dist",
+    "dev": "npm-run-all --parallel watch:js start"
+  },
+  "keywords": [],
+  "author": "Erick Ngechu",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/polyfill": "^7.12.1",
+    "@stripe/stripe-js": "^7.1.0",
+    "axios": "^1.7.9",
+    "bcryptjs": "^2.4.3",
+    "compression": "^1.8.0",
+    "cookie-parser": "^1.4.7",
+    "core-js": "^3.41.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "eslint-config-prettier": "^10.1.2",
+    "eslint-plugin": "^1.0.1",
+    "eslint-plugin-node": "^11.1.0",
+    "express": "^4.21.2",
+    "express-mongo-sanitize": "^2.2.0",
+    "express-rate-limit": "^7.5.0",
+    "helmet": "^8.0.0",
+    "hpp": "^0.2.3",
+    "jsonwebtoken": "^9.0.2",
+    "mapbox-gl": "^3.11.0",
+    "mongoose": "^8.9.5",
+    "morgan": "^1.10.0",
+    "multer": "1.4.5-lts.2",
+    "ndb": "^1.1.5",
+    "node-cron": "^3.0.3",
+    "nodemailer": "^6.10.0",
+    "pug": "^3.0.3",
+    "regenerator-runtime": "^0.14.1",
+    "sharp": "^0.34.1",
+    "slugify": "^1.6.6",
+    "stripe": "^18.0.0",
+    "validator": "^13.12.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.0",
+    "@babel/preset-env": "^7.26.9",
+    "@eslint/js": "^9.19.0",
+    "@parcel/babel-preset-env": "^2.13.3",
+    "buffer": "^5.5.0||^6.0.0",
+    "cross-env": "^7.0.3",
+    "eslint": "^9.19.0",
+    "globals": "^16.0.0",
+    "npm-run-all": "^4.1.5",
+    "parcel": "^2.13.3",
+    "prettier": "^3.4.2",
+    "process": "^0.11.10"
+  },
+  "engines": {
+    "node": ">10.0.0"
+  },
+  "alias": {
+    "mapbox-gl": "mapbox-gl/dist/mapbox-gl.js"
+  },
+  "targets": {
+    "default": {
+      "context": "browser",
+      "outputFormat": "esmodule",
+      "engines": {
+        "browsers": "> 0.5%, last 2 versions, not dead"
+      }
+    }
+  },
+  "browserslist": {
+    "production": [
+      "> 0.5%",
+      "last 2 versions",
+      "not dead"
+    ],
+    "development": [
+      "> 0.5%",
+      "last 2 versions",
+      "not dead"
+    ]
+  }
+}

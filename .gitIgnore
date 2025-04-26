@@ -1,0 +1,9 @@
+.parcel-cache/
+node_modules/
+access.log
+
+config.env
+
+dev-data/
+public/tour.html
+public/overview.html

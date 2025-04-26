@@ -1,0 +1,25 @@
+doctype html 
+html 
+    head
+        block head 
+            meta(charset='UTF-8')
+            meta(name='viewport' content='width=device-width, initial-scale=1.0')            
+        link(rel='stylesheet' href='/css/style.css')
+        link(rel='shortcut icon' type='image/png' href='/img/favicon.png')
+        link(rel='stylesheet'  href='https://fonts.googleapis.com/css?family=Lato:300,300i,700')
+        title Natours | #{title}
+
+
+    body
+        main.main
+            .login-form
+                h1.heading-secondary.ma-bt-lg Your password reset was successfully.
+                form.form.form--login
+                    .form__group
+                        p.checkpassword__txt  Check your email for further instructions.
+                    .form__group
+                        a.btn.btn--green.btn--small(href='/') Details
+                                span.btn-text Home
+                    //- All the scripts will be loaded here
+            //- script(src='/js/dist/index.js' type='module')
+            script(src='/js/dist/index.js')

@@ -1,0 +1,21 @@
+doctype html 
+html 
+    head
+        block head 
+            meta(charset='UTF-8')
+            meta(name='viewport' content='width=device-width, initial-scale=1.0')            
+        link(rel='stylesheet' href='/css/style.css')
+        link(rel='shortcut icon' type='image/png' href='/img/favicon.png')
+        link(rel='stylesheet'  href='https://fonts.googleapis.com/css?family=Lato:300,300i,700')
+        title Natours | #{title}
+
+
+    body
+        main.main
+            .not__found
+                    h1.heading-secondary.ma-bt-lg Page not found
+                    p.not__found--text= data
+                        form.form.form--login
+                            .form__group
+                                        a.btn.btn--green.btn--small(href='/') &larr; Home
+                                            
