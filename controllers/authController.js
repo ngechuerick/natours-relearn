@@ -24,7 +24,7 @@ const createSendToken = (user, statusCode, req, res) => {
     sameSite: 'Lax',
   };
 
-  if (process.env.NODE_ENV === 'production' && req.secure) {
+  if (req.secure || req.headers['x-forwarded-proto'] === 'https') {
     cookieOptions.secure = true;
     cookieOptions.sameSite = 'None';
   }
