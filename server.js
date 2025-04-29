@@ -10,6 +10,14 @@ process.on('uncaughtException', err => {
   process.exit(1);
 });
 
+process.on('SIGTERM', () => {
+  console.log('SIGTERM INITIATED. Shutting down.');
+
+  server.close(() => {
+    console.log('Proces terminated');
+  });
+});
+
 dotenv.config({ path: './config.env' });
 
 const DB = process.env.DATABASE.replace(

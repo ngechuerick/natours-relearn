@@ -19,8 +19,12 @@ const userRouter = require('./routes/userRoutes');
 const reviewsRouter = require('./routes/reviewRoutes');
 const bookingRouter = require('./routes/bookingRoutes');
 const viewsRouter = require('./routes/viewRoutes');
+const bookingController = require('./controllers/bookingController');
 
 const app = express();
+
+// app.enable('trust proxy');
+
 /**FIXME A CRON JOB FOR KEEPING THE SERVER UP AND RUNNING */
 cron.schedule('*/1 * * * *', () => {
   http
@@ -46,6 +50,7 @@ app.set('views', path.join(__dirname, 'views'));
 /**Parses data from cookies */
 app.use(cookieParser());
 
+/**Implement cors */
 app.use(
   cors({
     origin: ['http://localhost:3000'],
@@ -54,6 +59,8 @@ app.use(
     credentials: true,
   }),
 );
+
+// app.options('*', cors());
 
 /**Helmet configurations */
 app.use(
@@ -124,6 +131,13 @@ const limiter = rateLimit({
 
 /**Implementing rate limiter middleware on our API */
 app.use('/api', limiter);
+
+/**The request object not to be in json format but as RAW format */
+app.post(
+  '/webhook-checkout',
+  express.raw({ type: 'application/json' }),
+  bookingController.webhookCheckout,
+);
 
 /**Passes incoming json payloads in the request body making the parsed data accesible through req.body */
 app.use(
