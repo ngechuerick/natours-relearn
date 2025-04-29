@@ -23,6 +23,7 @@
 
 html {
   font-size: 62.5%;
+  /* this is basically 16px = 1 rem*/
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
@@ -44,7 +45,7 @@ body {
 
 .main {
   background-color: #f7f7f7;
-  padding: 8rem 6rem;
+  padding: 8rem 2rem;
   -webkit-box-flex: 1;
   -ms-flex: 1;
   flex: 1;
@@ -825,6 +826,7 @@ body {
   justify-content: space-between;
 }
 
+
 @media only screen and (max-width: 50em) {
   .footer {
     grid-template-columns: 1fr;
@@ -854,15 +856,17 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
 }
 
 .footer__nav li {
   margin-left: 1.5rem;
 }
 
-.footer__nav a {
+.footer__nav li a {
   color: #777;
-  text-decoration: none !important;
+  text-decoration: none;
   -webkit-transition: all 0.2s;
   transition: all 0.2s;
 }
@@ -875,6 +879,10 @@ body {
 .footer__copyright {
   justify-self: end;
   color: #999;
+}
+
+.footer__copyright a {
+  color: #16a34a;
 }
 
 @media only screen and (max-width: 50em) {
@@ -1132,7 +1140,8 @@ body {
   max-width: 120rem;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  /* grid-template-columns: repeat(3, 1fr); */
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   grid-gap: 7rem;
 }
 
@@ -1462,4 +1471,95 @@ body {
 .not__found--text {
   font-size: 1.6rem;
   margin-bottom: 1.6rem;
+}
+
+
+/* MOBILE RESPONSIVENESS */
+@media (max-width:576px) {
+  html {
+    font-size: 56.25%;
+    /* 9px*/
+  }
+
+  /* Styling the tour overview page */
+  .section-header {
+    height: 98vw;
+  }
+
+  .section-description {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Styling the images section */
+  .section-pictures {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .picture-box__img--1,
+  .picture-box__img--2,
+  .picture-box__img--3 {
+    padding-bottom: 0;
+  }
+
+  /* Styling the call to action section */
+  .cta__content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    align-items: self-start;
+
+  }
+}
+
+@media (min-width:577px) and (max-width:767px) {
+  html {
+    font-size: 60%;
+    /* 9.6px*/
+  }
+
+  .section-header {
+    height: 88vw;
+  }
+}
+
+@media (min-width:768px) and (max-width:991px) {
+  html {
+    font-size: 60%;
+    /* 9.6px*/
+  }
+
+  .main {
+    padding: 8rem 4rem;
+  }
+}
+
+@media (min-width:992px) and (max-width:1199px) {
+  html {
+    font-size: 68.75%;
+    /* 11px*/
+  }
+
+  .main {
+    padding: 8rem 6rem;
+  }
+}
+
+@media (min-width:1200px) and (max-width:1399px) {
+  html {
+    font-size: 68.75%;
+    /* 11px*/
+  }
+}
+
+@media (min-width:1400px) {
+  html {
+    font-size: 68.75%;
+    /* 11px*/
+  }
 }
