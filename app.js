@@ -23,7 +23,7 @@ const bookingController = require('./controllers/bookingController');
 
 const app = express();
 
-// app.enable('trust proxy');
+app.enable('trust proxy', true);
 
 /**FIXME A CRON JOB FOR KEEPING THE SERVER UP AND RUNNING */
 cron.schedule('*/1 * * * *', () => {
