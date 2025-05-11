@@ -67,8 +67,6 @@ const createBookingCheckout = async function (session) {
 
   const user = await User.findOne({ email: session.customer_email });
 
-  console.log(user);
-
   const price = session.amount_total / 100;
 
   await Booking.create({ tour, user: user.id, price });
@@ -76,16 +74,19 @@ const createBookingCheckout = async function (session) {
 
 exports.webhookCheckout = (req, res, next) => {
   /**Reading stripe signature from the headers */
-  const signature = req.headers['stripe-signature'];
+  const sig = req.headers['stripe-signature'];
+
+  console.log(sig);
 
   let event;
   try {
     event = stripe.webhooks.constructEvent(
       req.body,
-      signature,
+      sig,
       process.env.STRIPE_WEBHOOK_SECRET,
     );
   } catch (err) {
+    console.log(err);
     return res.status(400).send(`Webhook error: ${err.message}`);
   }
 
