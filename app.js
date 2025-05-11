@@ -25,6 +25,13 @@ const app = express();
 
 app.enable('trust proxy', true);
 
+/**The request object not to be in json format but as RAW format */
+app.post(
+  '/webhook-checkout',
+  express.raw({ type: 'application/json' }),
+  bookingController.webhookCheckout,
+);
+
 /**FIXME A CRON JOB FOR KEEPING THE SERVER UP AND RUNNING */
 cron.schedule('*/1 * * * *', () => {
   http
@@ -131,13 +138,6 @@ const limiter = rateLimit({
 
 /**Implementing rate limiter middleware on our API */
 app.use('/api', limiter);
-
-/**The request object not to be in json format but as RAW format */
-app.post(
-  '/webhook-checkout',
-  express.raw({ type: 'application/json' }),
-  bookingController.webhookCheckout,
-);
 
 /**Passes incoming json payloads in the request body making the parsed data accesible through req.body */
 app.use(
