@@ -1,10 +1,10 @@
 {
   "name": "natoursrelearn",
   "version": "1.0.0",
-  "description": "Relearning Express Node js and Mongoodb",
+  "description": "Relearning Express Node js and MongoDb",
   "source": "./public/js/index.js",
   "scripts": {
-    "start": "node --watch server.js",
+    "start": "node server.js",
     "start:dev": "node --watch server.js",
     "start:prod": "cross-env NODE_ENV=production node --watch server.js",
     "debug": "ndb server.js",

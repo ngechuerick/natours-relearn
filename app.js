@@ -23,7 +23,7 @@ const bookingController = require('./controllers/bookingController');
 
 const app = express();
 
-app.enable('trust proxy', true);
+app.enable('trust proxy');
 
 /**The request object not to be in json format but as RAW format */
 app.post(
