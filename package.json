@@ -12,7 +12,9 @@
     "build:js": "parcel build public/js/index.js --dist-dir public/js/dist",
     "dev": "npm-run-all --parallel watch:js start"
   },
-  "keywords": [],
+  "keywords": [
+    "APi development, Express mongodb, travel app"
+  ],
   "author": "Erick Ngechu",
   "license": "ISC",
   "dependencies": {

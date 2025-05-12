@@ -23,6 +23,7 @@ const bookingController = require('./controllers/bookingController');
 
 const app = express();
 
+/**Since we are using render to host our app we should enable this */
 app.enable('trust proxy');
 
 /**The request object not to be in json format but as RAW format */
@@ -35,9 +36,12 @@ app.post(
 /**FIXME A CRON JOB FOR KEEPING THE SERVER UP AND RUNNING */
 cron.schedule('*/1 * * * *', () => {
   http
-    .get('http://127.0.0.1:3000/api/v1/cronRoute', (req, res) => {
-      console.log('up and running');
-    })
+    .get(
+      `${req.protocol}://${req.get('host')}/api/v1/cronRoute`,
+      (req, res) => {
+        console.log('up and running');
+      },
+    )
     .on('error', () => {
       console.log('there was an error pinging');
     });
