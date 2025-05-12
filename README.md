@@ -13,6 +13,11 @@ This project serves as a hands-on way to explore:
 - Rendering dynamic views with **Pug**.
 - Scheduling tasks with **node-cron**.
 
+## FOR SRTIPE PAGE USE THE FOLLOWING CREDENTIALS FOR TESTING
+- Card number 4242 4242 4242 4242
+- CVC 222 or any number
+- Date greater than current date.
+
 ## Api reference link
 
 [Postman API](https://documenter.getpostman.com/view/33499698/2sAYXFjJBX)
