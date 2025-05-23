@@ -6,6 +6,15 @@ import { updateDetails, updatePassword } from './updateDetails';
 import { resetPassword, setNewPassword } from './passwordReset';
 import { signup } from './signup';
 
+const mobileNav = document.querySelector('.hamburger');
+const navbar = document.querySelector('.menubar');
+
+const toggleNav = () => {
+  navbar.classList.toggle('active');
+  mobileNav.classList.toggle('hamburger-active');
+};
+if (mobileNav) mobileNav.addEventListener('click', () => toggleNav());
+
 document.addEventListener('DOMContentLoaded', () => {
   const mapElement = document.getElementById('map');
   if (mapElement) {
@@ -63,11 +72,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /**Lets log out the user */
   const logoutBtn = document.querySelector('.nav__el--logout');
+  const logoutMobile = document.querySelector('.nav__el--logout--mobile');
 
   if (logoutBtn)
     logoutBtn.addEventListener('click', () => {
+      console.log('clicked');
       logout();
     });
+
+  if (logoutMobile) {
+    logoutMobile.addEventListener('click', () => {
+      console.log('clicked');
+      logout();
+    });
+  }
 
   /**handling book button payment */
   const bookBtn = document.getElementById('book-tour');
